@@ -9,40 +9,61 @@
 
 \tableofcontents
 
+\section[trees]{Trees}
+
+Everything is a tree.
+
+\section[computer-aided-design]{Computer Aided Design}
+
+\cite{can-a-machine-design}
+
+\section[universal-theory-of-computing]{Universal Theory of Computing}
+
+\cite{the-unix-operating-system}
+\cite{what-unix-cost-us}
+
+\subsection[computational-computing]{Computational Computing}
+
+Theory
+
+\subsection[personal-computing]{Personal Computing}
+
+Machine
+
+\subsection[augmentative-computing]{Augmentative Computing}
+
+Tool
+
+\section[authority]{Authority}
+
+\cite{the-tragedy-of-systemd}
+
 \section[the-human-problem]{The Human Problem}
 
 \cite{augmentating-human-intellect}
-
 \cite{mother-of-all-demos}
-
 \cite{augmentation-of-douglas-engelbart}
-
 \cite{written-for-eyes}
-
 \cite{the-future-of-programming}
+\cite{a-few-words-on-doug-engelbart}
+\cite{inventing-on-principle}
+
+\section[object-oriented-programming]{Object Oriented Programming}
+
+The issue with OOP is not the Objects, but the Orientation.
 
 \section[compression-oriented-programming]{Compression Oriented Programming}
 
 \cite{designing-and-evaluating-reusable-components}
-
 \cite{immediate-mode-gui}
-
 \cite{five-second-stall}
-
 \cite{semantic-compression}
-
 \cite{complexity-and-granularity}
-
 \cite{thirty-million-line-problem}
-
 \cite{twitter-and-visual-studio-rant}
-
 \cite{how-fast-should-an-unoptimised-terminal-run}
-
 \cite{simple-code-high-performance}
-
 \cite{where-does-bad-code-come-from}
-
 \cite{the-only-unbreakable-law}
 
 Blender's node programming demonstrates compression oriented programming
@@ -51,17 +72,60 @@ through the ability to group a selection of nodes into a new node.
 \section[type-oriented-programming]{Type Oriented Programming}
 
 Use types only to make invalid states unrepresentable,
-or as a granular step \cite{complexity-and-granularity} to
+or as a granular\cite{complexity-and-granularity} step to
 improving/simplifying an API,
 not as encapsulation for encapsulations sake.
+
+Does not contradict \ref{compression-oriented-programming},
+instead type oriented programming describes a set of tools one may use while
+attempting to compress or debug code. \\
+We aim to use the language's type system to systematically eradicate invalid
+state and therefore catch bugs.
+
+\subsection[space-types]{Space Types}
+
+Something that comes up a lot in computer graphics is the `space' that a
+particular set of points, vectors and transformations operate in.
+Be that Model space, View space, World space, etc. \\
+Transformations between these spaces are generally named as such,
+for example, the Model View Projection Matrix (MVP for short) translates points
+and such from the Model space to Screen/Clip space.
+
+On a project I worked on a while ago, I discovered an issue where points in
+one space were being treated as if they were actually in a different space,
+resulting in numerous rendering issues. \\
+I decided to solve this issue through use of the type system:
+if a point truly exists in Model space, its type should be tagged as such. \\
+Transformations between different spaces would now also change the type tag.
+This caught more bugs than I had originally expected. \\
+Importantly though, the new system was design to allow the programmer to
+\emph{explicitly} sidestep type system, to effectively allow for \emph{casting}
+between spaces. \\
+This meant that code that was intentionally jumping between spaces without
+a transformation could continue doing so,
+but now made it explicitly clear that that was happening. \\
+We moved the burden of validating space transformations to the compiler,
+whilst still maintaining enough granularity\cite{complexity-and-granularity}
+to allow the programmer to do their job without having to jump through a
+million hoops.
 
 \section[misc]{Misc}
 
 \cite{100-rabbits}
-
 \cite{xxiivv}
-
 \cite{plan-9}
+
+\subsection[mega65]{MEGA65}
+
+Macroification
+\cite{understandable-computers}
+\cite{fpga-based-mobile-phone}
+\cite{megawat}
+
+\subsubsection[megawat]{MegaWAT!?}
+
+Was written in a semester as a university project\cite{megawat}.
+Was demonstrated at linux.conf.au\cite{fpga-based-mobile-phone}.
 
 \newpage
 
