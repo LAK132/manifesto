@@ -1,0 +1,42 @@
+html {
+  justify-content: center;
+  display: flex;
+}
+
+body {
+  font-family: sans-serif;
+  max-width: 60em;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+p {
+  text-indent: 1em;
+}
+
+h1, h2, h3, h4 {
+  font-family: serif;
+}
+
+#title-block-header {
+  text-align: center;
+}
+
+.title {
+  font-size: 300%;
+}
+
+.author {
+  font-style: italic;
+}
+
+.citation {
+  vertical-align: super;
+  font-size: 0.83em;
+}
+
+#refs p {
+  text-indent: 0 !important;
+}
