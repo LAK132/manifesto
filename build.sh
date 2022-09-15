@@ -13,4 +13,5 @@ pandoc \
   --bibliography=bibliography.bib \
   --csl=acm-sigchi-proceedings.csl \
   --css=style.css \
+  --lua-filter=filter.lua \
   main.tex
